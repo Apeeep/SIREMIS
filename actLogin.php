@@ -1,7 +1,7 @@
 <?php
     session_start();   
     require_once 'class.login.php';
-    require_once 'config/koneksi.php';     
+    require_once 'config/koneksi.php';  
     if (isset ($_POST['login'])) {
         $username = $_POST['username'];
         $password = md5($_POST['password']);         

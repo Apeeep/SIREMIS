@@ -33,6 +33,9 @@ include "config/fungsi_ago.php";
 		@import "dataTable/css/DT_bootstrap.css";
 		@import "dataTable/themes/smoothness/jquery-ui-1.7.2.custom.css";
 		{/literal}
+		* {
+			font-family: "Open Sans";
+		}
 
 		.navbar .navbar-inner {
 			background: #307ECC;

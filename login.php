@@ -52,7 +52,7 @@
                   </h5>
                   <h4><img class="w-50 m-4" src="assets/images/logo.png" /></h4>
                   <form
-                    action="actlogin.php"
+                    action="actLogin.php"
                     method="post"
                     class="d-flex flex-column align-items-center gap-3"
                   >
