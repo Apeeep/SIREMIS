@@ -1,46 +1,29 @@
-	<div class="navbar">
-				<div class="navbar-inner bg-primary">
-					<div class="container-fluid">
-						<a href="#" class="brand">
-							<small>
-								<i class="icon-plus-sign-alt"></i>
-								SISTEM INFORMASI REKAM MEDIS KLINIK PRATAMA BP CILANDAK - JAKARTA SELATAN
-							</small>
-						</a><!--/.brand-->
-						
-						<ul class="nav ace-nav pull-right">
-							
-							<li style="background:#307ECC">
-								<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-									<?php $foto = 'master_ref/user/img_user/'.$_SESSION['foto_user']; ?>
-									<img class="nav-user-photo" src="<?php  echo $foto;?>" />
-									<span class="user-info">
-										<small>Welcome,</small>
-										<?php echo $_SESSION['s_nama']?>
-									</span>
-	
-									<i class="icon-caret-down"></i>
-								</a>
-	
-								<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
-									<li>								
-										<a  href="javascript:void(0)" onclick="swapContent('master_ref/user/user')" > 
-											<i class="icon-user"></i>
-											Profile
-										</a>
-									</li>
-								
-									<li class="divider"></li>
-	
-									<li>
-										<a href="logout.php">
-											<i class="icon-off"></i>
-											Logout
-										</a>
-									</li>
-								</ul>
-							</li>
-						</ul><!--/.ace-nav-->
-					</div><!--/.container-fluid-->
-				</div><!--/.navbar-inner-->
+<header id="navbar" class="py-2 border-bottom text-white">
+	<div class="d-flex align-items-center mx-4 flex-wrap justify-content-center justify-content-lg-start" style="grid-template-columns: 1fr 2fr;">
+		<div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center align-items-center gap-2 mb-md-0">
+			<i class="fa-solid fa-notes-medical fs-5"></i>
+			<h4 class="m-0 fw-bold text-center fw-md-thin">SISTEM INFORMASI REKAM MEDIS</h4>
+		</div>
+		<div class="d-flex align-items-center">
+			<div class="d-flex align-items-center gap-2 flex-shrink-0 dropdown">
+				<p class="m-0"><?php echo $_SESSION['s_nama'] ?></p>
+				<a href="#" class="d-flex align-items-center gap-2 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+					<?php $foto = 'master_ref/user/img_user/' . $_SESSION['foto_user']; ?>
+					<img src="<?php echo $foto; ?>" alt="Profile" width="32" height="32" class="rounded-circle">
+					<i class="fa-solid fa-caret-down text-white"></i>
+				</a>
+				<ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="light">
+					<li>
+						<a class="dropdown-item rounded-2" href="javascript:void(0)" onclick="swapContent('master_ref/user/user')">Profile</a>
+					</li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li>
+						<a class="dropdown-item rounded-2" href="logout.php">Logout</a>
+					</li>
+				</ul>
 			</div>
+		</div>
+	</div>
+</header>

@@ -1,325 +1,193 @@
  <?php
-include 'config/cekSession.php';
-include "config/fungsi_ago.php";
-?>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Sistem Informasi Rekam Medis Klinik Pratama BP Cilandak</title>
-		<link rel="icon" type="image/png" href="assets/images/logo.png" />
-		<meta name="description" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
-		<link rel="stylesheet" href="assets/css/select2.css" />
-		<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.custom.min.css" />
-		<link rel="stylesheet" href="assets/css/chosen.css" />
-		<link rel="stylesheet" href="assets/css/datepicker.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
-		<link rel="stylesheet" href="assets/css/daterangepicker.css" />
-		<link rel="stylesheet" href="assets/css/colorpicker.css" />
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css" />
-		<style type="text/css">
-		{literal}
-		@import "dataTable/css/demo_table_jui.css";
-		@import "dataTable/css/TableTools.css";
-		@import "dataTable/css/DT_bootstrap.css";
-		@import "dataTable/themes/smoothness/jquery-ui-1.7.2.custom.css";
-		{/literal}
-		* {
-			font-family: "Open Sans";
-		}
+	include 'config/cekSession.php';
+	include "config/fungsi_ago.php";
+	?>
+ <!DOCTYPE html>
+ <html lang="en">
 
-		.navbar .navbar-inner {
-			background: #307ECC;
-			background-color: #307ECC;
-		}
+ <head>
+ 	<meta charset="utf-8" />
+ 	<title>Sistem Informasi Rekam Medis Klinik Pratama BP Cilandak</title>
+ 	<link rel="icon" type="image/png" href="assets/images/logo.png" />
+ 	<meta name="description" content="" />
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 	<link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+ 	<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+ 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" /> -->
 
-		.ttip {
-			position: relative;
-			display: inline-block;
-		}
+ 	<!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+ 	<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+ 	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+ 	<link rel="stylesheet" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
+ 	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+ 	<link rel="stylesheet" href="assets/css/select2.css" />
+ 	<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.custom.min.css" />
+ 	<link rel="stylesheet" href="assets/css/chosen.css" />
+ 	<link rel="stylesheet" href="assets/css/datepicker.css" />
+ 	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+ 	<link rel="stylesheet" href="assets/css/daterangepicker.css" />
+ 	<link rel="stylesheet" href="assets/css/colorpicker.css" />
+ 	<link rel="stylesheet" href="assets/css/ace.min.css" />
+ 	<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+ 	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+ 	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css" /> -->
+ 	<style type="text/css">
+ 		@import "dataTable/css/demo_table_jui.css";
+ 		@import "dataTable/css/TableTools.css";
+ 		@import "dataTable/css/DT_bootstrap.css";
+ 		@import "dataTable/themes/smoothness/jquery-ui-1.7.2.custom.css";
 
-		.ttip .ttiptext {
-			visibility: hidden;
-			width: 100px;
-			background-color: #307ECC;
-			color: #fff;
-			text-align: center;
-			border-radius: 6px;
-			padding: 5px 0;
-		
-		/* Position the tooltip */
-			position: absolute;
-			z-index: 1;
-			bottom: 120%;
-			left: 50%;
-			margin-left: -50px;
-		}
+ 		* {
+ 			font-family: "Poppins", sans-serif;
+ 		}
 
-		.ttip:hover .ttiptext {
-			visibility: visible;
-		}
+ 		#navbar {
+ 			background: linear-gradient(#1565c0, #0d47a1);
+ 		}
 
-		.control-label {
-			text-align: left;
-		}
+ 		#accordion-item {
+ 			background: linear-gradient(#2D92D1, #0d47a1);
+ 		}
 
-		.breadcrumbs {
-			display: flex;
-			align-items: center;
-			gap: 20px;
-		}
+ 		.navbar .navbar-inner {
+ 			background: #307ECC;
+ 			background-color: #307ECC;
+ 		}
 
-		</style>
-		
-<!-- =-=-=-=-=-=-=-=-=-= JavaScript Page =-=-=-=-=-=-=-=-=-= -->
-		<script type="text/javascript">
-		function swapContent(cv){
-			$.ajax({
-				type:"GET",
-				url:"page.php",
-				data:"page="+cv,
-				beforeSend:function(){
-					$("#content").html("<img src='assets/images/ajax-loader.gif' />");
-				},
-				success:function(data){
-					$("#content").html(data);
-				}
-			});
-		}
-		
-		function swapContent1(id){
-			$.ajax({
-				type:"GET",
-				url:"survey/edit_survey1.php",
-				data:"id="+id,
-				beforeSend:function(){
-					$("#content").html("<img src='assets/images/ajax-loader.gif' />");
-				},
-				success:function(data){
-					$("#content").html(data);
-				}
-			});
-		}
-		</script>
-<!-- =-=-=-=-=-=-=-=-=-= JavaScript End Page =-=-=-=-=-=-=-=-=-= -->
-		<script src="assets/js/jquery-1.11.2.min.js"></script>
-	    <script src="assets/js/highcharts.js"></script>
-	    <script src="assets/js/exporting.js"></script>
-	</head>
-<body>	
-<!-- =-=-=-=-=-=-=-=-=-= Navbar Top =-=-=-=-=-=-=-=-=-= -->
-		<?php include 'navbar-top.php'; ?> 
-<!-- =-=-=-=-=-=-=-=-=-= End Navbar Top =-=-=-=-=-=-=-=-=-= -->
-		<div class="main-container container-fluid">
-			<a class="menu-toggler" id="menu-toggler" href="#">
-				<span class="menu-text"></span>
-			</a>
+ 		.control-label {
+ 			text-align: left;
+ 		}
 
-			<div class="sidebar" id="sidebar">
-				<!--
-				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-small btn-success">
-							<i class="icon-signal"></i>
-						</button>
+ 		.breadcrumbs {
+ 			display: flex;
+ 			align-items: center;
+ 			gap: 20px;
+ 		}
+ 	</style>
 
-						<button class="btn btn-small btn-info">
-							<i class="icon-pencil"></i>
-						</button>
+ 	<!-- =-=-=-=-=-=-=-=-=-= JavaScript Page =-=-=-=-=-=-=-=-=-= -->
+ 	<script type="text/javascript">
+ 		function swapContent(cv) {
+ 			$.ajax({
+ 				type: "GET",
+ 				url: "page.php",
+ 				data: "page=" + cv,
+ 				beforeSend: function() {
+ 					$("#content").html("<img src='assets/images/ajax-loader.gif' />");
+ 				},
+ 				success: function(data) {
+ 					$("#content").html(data);
+ 				}
+ 			});
+ 		}
 
-						<a href="javascript:void(0)" onclick="swapContent('user/user')" class="btn btn-small btn-warning">
-							<i class="icon-group"></i>
-						</a>
+ 		function swapContent1(id) {
+ 			$.ajax({
+ 				type: "GET",
+ 				url: "survey/edit_survey1.php",
+ 				data: "id=" + id,
+ 				beforeSend: function() {
+ 					$("#content").html("<img src='assets/images/ajax-loader.gif' />");
+ 				},
+ 				success: function(data) {
+ 					$("#content").html(data);
+ 				}
+ 			});
+ 		}
+ 	</script>
+ 	<!-- =-=-=-=-=-=-=-=-=-= JavaScript End Page =-=-=-=-=-=-=-=-=-= -->
+ 	<script src="assets/js/jquery-1.11.2.min.js"></script>
+ 	<script src="https://code.highcharts.com/highcharts.js"></script>
+ 	<script src="assets/js/exporting.js"></script>
+ </head>
 
-						<button class="btn btn-small btn-danger">
-							<i class="icon-cogs"></i>
-						</button>
-					</div>
+ <body>
+ 	<!-- ================== NAVBAR TOP ================== -->
+ 	<?php include 'navbar-top.php'; ?>
+ 	<!-- ================== NAVBAR TOP ================== -->
+ 	<div class="main-container d-flex">
+ 		<div class="sidebar">
+ 			<!-- ================== SIDEBAR ================== -->
+ 			<?php include 'navbar-left.php'; ?>
+ 			<!-- ================== SIDEBAR ================== -->
+ 		</div>
+ 		<div class="main-content container-fluid">
+ 			<div class="breadcrumbs" id="breadcrumbs">
+ 				<ul class="breadcrumb">
+ 					<li class="breadcrumb-item">
+ 						<a href=""><i class="icon-home home-icon"></i> Home </a>
+ 					</li>
+ 					<li class="fa-solid fa-angle-right"></li>
+ 					<li class="breadcrumb-item active" id="id-breadcrumbs"></li>
+ 				</ul>
+ 				<small>
+ 					<span id="dates"><span id="the-day"></span> <span id="the-time"></span> </span>
+ 				</small>
+ 				<small>
+ 					<span><b>Nama : </b><?php echo $_SESSION['s_nama'] ?></span>
+ 				</small>
+ 				<small>
+ 					<span><b>Level : </b><?php echo $_SESSION['s_level'] ?></span>
+ 				</small>
+ 			</div>
+ 			<div class="page-content" id="content">
+ 				<?php include_once('home_start.php') ?>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	</div>
 
-					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-						<span class="btn btn-success"></span>
+ 	<script>
+ 		function myFunction(e) {
+ 			var elems = document.querySelector(".active");
+ 			if (elems !== null) {
+ 				elems.classList.remove("active");
+ 			}
+ 			e.target.classList.add("active");
+ 		}
+ 	</script>
+ 	<script type="text/javascript">
+ 		window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+ 	</script>
+ 	<script type="text/javascript">
+ 		if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+ 	</script>
 
-						<span class="btn btn-info"></span>
+ 	<script src="assets/js/jquery.min.js"></script>
+ 	<script src="assets/js/jquery.maskMoney.js"></script>
+ 	<script src="assets/js/jquery.maskMoney.min.js"></script>
+ 	<script src="assets/js/jquery.dataTables.min.js"></script>
+ 	<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+ 	<script src="assets/js/jquery.knob.min.js"></script>
+ 	<script src="assets/js/jquery.autosize-min.js"></script>
+ 	<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+ 	<script src="assets/js/jquery.maskedinput.min.js"></script>
+ 	<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+ 	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+ 	<script src="assets/js/jquery-ui.custom.min.js"></script>
+ 	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+ 	<script src="assets/js/jquery.easypiechart.min.js"></script>
+ 	<script src="assets/js/jquery.sparkline.min.js"></script>
+ 	<script src="assets/js/jquery.flot.min.js"></script>
+ 	<script src="assets/js/jquery.flot.pie.min.js"></script>
+ 	<script src="assets/js/jquery.flot.resize.min.js"></script>
 
-						<span class="btn btn-warning"></span>
+ 	<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+ 	<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
+ 	<script src="assets/js/date-time/moment.min.js"></script>
+ 	<script src="assets/js/date-time/daterangepicker.min.js"></script>
 
-						<span class="btn btn-danger"></span>
-					</div>
-				</div>--><!--#sidebar-shortcuts-->
-<!-- =-=-=-=-=-=-=-=-=-= Navbar Right =-=-=-=-=-=-=-=-=-= -->
-				<?php include 'navbar-right.php'; ?>
-<!-- =-=-=-=-=-=-=-=-=-= End Navbar Right =-=-=-=-=-=-=-=-=-= -->
-				<div class="sidebar-collapse" id="sidebar-collapse">
-					<i class="icon-double-angle-left"></i>
-				</div>
-			</div>
+ 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-			<div class="main-content">
-				<div class="breadcrumbs" id="breadcrumbs">
-					<ul class="breadcrumb">
-						
-						<li>
-							<a href=""><i class="icon-home home-icon"></i> Home </a> 
-						</li>
-						<li class="icon icon-long-arrow-right"></li> <li class="active" id="id-breadcrumbs"></li>					
-					</ul><!--.breadcrumb-->
-					
-					<small>
-					<span id="dates"><span id="the-day"></span> <span id="the-time"></span> </span> 
-					</small>
+ 	<script src="assets/js/time.js" type="text/javascript"></script>
 
-					<small>
-					<span><b>Nama : </b><?php echo $_SESSION['s_nama'] ?></span> 
-					</small>
+ </body>
 
-					<small>
-					<span><b>Level : </b><?php echo $_SESSION['s_level'] ?></span> 
-					</small>
-					<!--
-					<div class="nav-search" id="nav-search">
-						<form class="form-search" />
-							<span class="input-icon">
-								<input type="text" placeholder="Search ..." class="input-small nav-search-input" id="nav-search-input" autocomplete="off" />
-								<i class="icon-search nav-search-icon"></i>
-							</span>
-						</form>
-					</div>-->
-				</div>
-<!-- =-=-=-=-=-=-=-=-=-= Main Content =-=-=-=-=-=-=-=-=-= -->
-				<div class="page-content" id="content">
-					<div class="row-fluid">
-						<div class="span12">
-							<!--PAGE CONTENT BEGINS-->
-							<?php include_once('home_start.php') ?>
-							<!--PAGE CONTENT ENDS-->
-						</div><!--/.span-->
-					</div><!--/.row-fluid-->
-				</div><!--/.page-content-->
-<!-- =-=-=-=-=-=-=-=-=-= End Main Content =-=-=-=-=-=-=-=-=-= -->
-				<!--
-				<div class="ace-settings-container" id="ace-settings-container">
-					<div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-						<i class="icon-cog bigger-150"></i>
-					</div>
-
-					<div class="ace-settings-box" id="ace-settings-box">
-						<div>
-							<div class="pull-left">
-								<select id="skin-colorpicker" class="hide">
-									<option data-class="default" value="#438EB9" />#438EB9
-									<option data-class="skin-1" value="#222A2D" />#222A2D
-									<option data-class="skin-2" value="#C6487E" />#C6487E
-									<option data-class="skin-3" value="#D0D0D0" />#D0D0D0
-								</select>
-							</div>
-							<span>&nbsp; Choose Skin</span>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" checked="checked" />
-							<label class="lbl" for="ace-settings-header" > Fixed Header</label>
-							
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" checked="checked" />
-							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-breadcrumbs" />
-							<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-						</div>
-
-						<div>
-							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-rtl" />
-							<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-						</div>
-					</div>
-				</div> --><!--/#ace-settings-container-->
-			</div><!--/.main-content-->
-		</div><!--/.main-container-->
-		
-<!-- =-=-=-=-=-=-=-=-=-= Scroll Up =-=-=-=-=-=-=-=-=-= -->
-		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-			<i class="icon-double-angle-up icon-only bigger-110"></i>
-		</a>
-<!-- =-=-=-=-=-=-=-=-=-= End Scroll Up =-=-=-=-=-=-=-=-=-= -->
-
-
-
-<!-- =-=-=-=-=-=-=-=-=-= -->
-		<!--basic scripts-->
-		<!--[if !IE]>-->
-		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
-		<!--<![endif]-->
-		<!--[if IE]>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<![endif]-->
-		<!--[if !IE]>-->
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-		</script>
-		<!--<![endif]-->
-		<!--[if IE]>-->
-		<!--<script src="assets/js/jquery.2.1.1.min.js"></script> -->
-		<!--
-		<script type="text/javascript">
- 		window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-		</script>
-		<![endif]-->		
-		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>
-		
-		<!--page specific plugin scripts-->	
-		
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.maskMoney.js"></script>
-		<script src="assets/js/jquery.maskMoney.min.js"></script>
-		<script src="assets/js/jquery.dataTables.min.js"></script>
-		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
-		<script src="assets/js/jquery.knob.min.js"></script>
-		<script src="assets/js/jquery.autosize-min.js"></script>
-		<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
-		<script src="assets/js/jquery.maskedinput.min.js"></script>
-		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="assets/js/jquery-ui.custom.min.js"></script>
-		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="assets/js/jquery.easypiechart.min.js"></script>
-		<script src="assets/js/jquery.sparkline.min.js"></script>
-		<script src="assets/js/jquery.flot.min.js"></script>
-		<script src="assets/js/jquery.flot.pie.min.js"></script>
-		<script src="assets/js/jquery.flot.resize.min.js"></script>
-		
-		<script src="assets/js/chosen.jquery.min.js"></script>
-		<script src="assets/js/ace-elements.min.js"></script>
-		<script src="assets/js/ace.min.js"></script>		
-		<script src="assets/js/ace-extra.min.js"></script>
-		<script src="assets/js/datatable.js"></script>
-		<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
-		<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
-		<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
-		<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
-		<script src="assets/js/date-time/moment.min.js"></script>
-		<script src="assets/js/date-time/daterangepicker.min.js"></script>
-		<script src="assets/js/bootstrap-timepicker.min.js"></script>
-		<script src="assets/js/bootstrap-colorpicker.min.js"></script>
-		<script src="assets/js/bootstrap-tag.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-
-		
-		<script src="assets/js/time.js" type="text/javascript"></script>
-		
-	</body>
-</html>
+ </html>

@@ -29,4 +29,3 @@ function relative_format($time)
 
 	return $relative_time;
 }
-?>
